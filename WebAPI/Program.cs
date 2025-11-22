@@ -47,7 +47,8 @@ builder.Services.AddAutoMapper(cfg =>
     cfg.AddExpressionMapping();
 });
 
-builder.Services.AddScoped<IUserUseCase, UserUseCase>();
+builder.Services.AddScoped<IUsuarioUseCase, UsuarioUseCase>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IEstadoUseCase, EstadoUseCase>();
 builder.Services.AddScoped<IEstadoRepository, EstadoRepository>();
 builder.Services.AddScoped<IModelTypeRepository, ModelTypeRepository>();
@@ -63,6 +64,9 @@ builder.Services.AddScoped<ModelTypeService>();
 builder.Services.AddScoped<SourceConfigService>();
 builder.Services.AddScoped<SourceModelFieldsService>();
 builder.Services.AddScoped<SourceModelService>();
+builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<PasswordService>();
+builder.Services.AddScoped<LdapService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>

@@ -8,20 +8,18 @@ namespace WebAPI.Infrastructure.Profiles
     {
         public InfrastructureProfile()
         {
-            // SourceConfig ↔ SourceConfigEntity
             CreateMap<SourceConfig, SourceConfigEntity>().ReverseMap();
-
-            // Estado ↔ EstadoEntity
             CreateMap<Estado, EstadoEntity>().ReverseMap();
-
-            // ModelType ↔ ModelTypeEntity
             CreateMap<ModelType, ModelTypeEntity>().ReverseMap();
-
-            // SourceModel ↔ SourceModelEntity
             CreateMap<SourceModel, SourceModelEntity>().ReverseMap();
-
-            // SourceModelFields ↔ SourceModelFieldsEntity
             CreateMap<SourceModelFields, SourceModelFieldsEntity>().ReverseMap();
+            CreateMap<DepartamentoModel, DepartamentoEntity>().ReverseMap();
+            CreateMap<GeneroModel, GeneroEntity>().ReverseMap();
+            CreateMap<MunicipioModel, MunicipioEntity>().ReverseMap();
+            CreateMap<NivelEducativoModel, NivelEducativoEntity>().ReverseMap();
+            CreateMap<PaisModel, PaisEntity>().ReverseMap();
+            CreateMap<TipoDocumentoModel, TipoDocumentoEntity>().ReverseMap();
+            CreateMap<UsuarioModel, UsuarioEntiy>().ReverseMap();
         }
     }
 }
