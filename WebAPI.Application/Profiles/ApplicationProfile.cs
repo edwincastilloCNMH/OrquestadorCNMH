@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using WebAPI.Application.DTO;
+using WebAPI.Application.Models;
 using WebAPI.Domain.Entities;
 
 namespace WebAPI.Application.Profiles
@@ -46,6 +47,9 @@ namespace WebAPI.Application.Profiles
             CreateMap<SourceModelFieldsEntity, SourceModelFieldsDTO>().ReverseMap();
             CreateMap<SourceModelFieldsCreateDTO, SourceModelFieldsEntity>();
             CreateMap<SourceModelFieldsUpdateDTO, SourceModelFieldsEntity>();
+
+            CreateMap<UsuarioEntiy, UsuarioDTO>().ReverseMap();
+            CreateMap<UsuarioEntiy, UsuarioRequest>().ReverseMap();
         }
 	}
 }

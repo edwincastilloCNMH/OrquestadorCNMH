@@ -25,6 +25,13 @@ namespace WebAPI.Infrastructure.Contexts
         public DbSet<ModelType> ModelType { get; set; }
         public DbSet<SourceModel> SourceModel { get; set; }
         public DbSet<SourceModelFields> SourceModelFields { get; set; }
+        public DbSet<DepartamentoModel> DepartamentoModel { get; set; }
+        public DbSet<GeneroModel> GeneroModel { get; set; }
+        public DbSet<MunicipioModel> MunicipioModel { get; set; }
+        public DbSet<NivelEducativoModel> NivelEducativoModel { get; set; }
+        public DbSet<PaisModel> PaisModel { get; set; }
+        public DbSet<TipoDocumentoModel> TipoDocumentoModel { get; set; }
+        public DbSet<UsuarioModel> UsuarioModel { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
