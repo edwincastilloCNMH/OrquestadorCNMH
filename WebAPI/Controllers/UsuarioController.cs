@@ -49,7 +49,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("[action]")]
         public async Task<IActionResult> UpdateUser(UsuarioDTO request)
         {
@@ -81,6 +81,22 @@ namespace WebAPI.Controllers
             {
                 return BadRequest(result);
             }
+        }
+
+        //[Authorize]
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _usersUseCase.GetAllUsers();
+            return new JsonResult(result);
+        }
+
+        [Authorize]
+        [HttpGet("GetAllPaged")]
+        public async Task<IActionResult> GetAllPaged([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+        {
+            var result = await _usersUseCase.GetAllUsersPaged(page, pageSize);
+            return new JsonResult(result);
         }
     }
 }

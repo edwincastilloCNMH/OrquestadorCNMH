@@ -1,6 +1,6 @@
 ﻿namespace WebAPI.Domain.Entities
 {
-    public class UsuarioEntiy
+    public class UsuarioEntity
     {
         public int Id { get; set; }
         public string Nombres { get; set; }
@@ -18,6 +18,10 @@
         public string Password { get; set; }
         public int EstadoId { get; set; }
         public bool IsActiveDirectoryUser { get; set; }
+
+        public string Direccion { get; set; }
+        public int? PoblacionInteresId { get; set; }
+        public bool? AceptaCondiciones { get; set; }
 
         // -----------------------------
         // Propiedades de navegación

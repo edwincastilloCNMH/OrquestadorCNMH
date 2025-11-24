@@ -48,8 +48,17 @@ namespace WebAPI.Application.Profiles
             CreateMap<SourceModelFieldsCreateDTO, SourceModelFieldsEntity>();
             CreateMap<SourceModelFieldsUpdateDTO, SourceModelFieldsEntity>();
 
-            CreateMap<UsuarioEntiy, UsuarioDTO>().ReverseMap();
-            CreateMap<UsuarioEntiy, UsuarioRequest>().ReverseMap();
+            CreateMap<UsuarioEntity, UsuarioDTO>().ReverseMap();
+            CreateMap<UsuarioEntity, UsuarioRequest>().ReverseMap();
+            CreateMap<UsuarioEntity, UsuarioListDTO>();
+
+            CreateMap<PaisEntity, PaisDTO>();
+            CreateMap<DepartamentoEntity, DepartamentoDTO>();
+            CreateMap<MunicipioEntity, MunicipioDTO>();
+            CreateMap<TipoDocumentoEntity, TipoDocumentoDTO>();
+            CreateMap<NivelEducativoEntity, NivelEducativoDTO>();
+            CreateMap<PoblacionInteresEntity, PoblacionInteresDTO>().ReverseMap();
+            CreateMap<GeneroEntity, GeneroDTO>().ReverseMap();
         }
 	}
 }

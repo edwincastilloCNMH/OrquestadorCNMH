@@ -140,7 +140,7 @@ namespace WebAPI.Application.UseCase
             var response = new Response<UsuarioDTO>();
             try
             {
-                UsuarioEntiy usersEntity = _mapper.Map<UsuarioEntiy>(user);
+                UsuarioEntity usersEntity = _mapper.Map<UsuarioEntity>(user);
 
                 var userExists = ValidateUserExists(user.NumDocumento).Data;
 
@@ -214,7 +214,7 @@ namespace WebAPI.Application.UseCase
             var response = new Response<UsuarioDTO>();
             try
             {
-                UsuarioEntiy usersEntity = _mapper.Map<UsuarioEntiy>(user);
+                UsuarioEntity usersEntity = _mapper.Map<UsuarioEntity>(user);
                 var existingUser = _usuarioService.GetById(user.Id);
                 if (existingUser == null)
                 {
@@ -240,6 +240,47 @@ namespace WebAPI.Application.UseCase
                 response.Message = e.ToString();
                 response.Succeeded = false;
             }
+            return response;
+        }
+
+        public async Task<Response<IEnumerable<UsuarioListDTO>>> GetAllUsers()
+        {
+            var response = new Response<IEnumerable<UsuarioListDTO>>();
+            try
+            {
+                var data = _usuarioService.GetAllUsers();
+                response.Data = _mapper.Map<IEnumerable<UsuarioListDTO>>(data);
+                response.Succeeded = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                response.Succeeded = false;
+            }
+            return response;
+        }
+
+        public async Task<Response<PagedResultDTO<UsuarioListDTO>>> GetAllUsersPaged(int page, int pageSize)
+        {
+            var response = new Response<PagedResultDTO<UsuarioListDTO>>();
+            try
+            {
+                var result = _usuarioService.GetAllUsersPaged(page, pageSize);
+
+                response.Data = new PagedResultDTO<UsuarioListDTO>
+                {
+                    Total = result.Total,
+                    Items = _mapper.Map<IEnumerable<UsuarioListDTO>>(result.Items)
+                };
+
+                response.Succeeded = true;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                response.Succeeded = false;
+            }
+
             return response;
         }
     }

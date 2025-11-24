@@ -19,7 +19,8 @@ namespace WebAPI.Infrastructure.Profiles
             CreateMap<NivelEducativoModel, NivelEducativoEntity>().ReverseMap();
             CreateMap<PaisModel, PaisEntity>().ReverseMap();
             CreateMap<TipoDocumentoModel, TipoDocumentoEntity>().ReverseMap();
-            CreateMap<UsuarioModel, UsuarioEntiy>().ReverseMap();
+            CreateMap<UsuarioModel, UsuarioEntity>().ReverseMap();
+            CreateMap<PoblacionInteresModel, PoblacionInteresEntity>().ReverseMap();
         }
     }
 }

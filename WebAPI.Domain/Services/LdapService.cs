@@ -31,7 +31,7 @@ namespace WebAPI.Domain.Services
             }
         }
 
-        public UsuarioEntiy GetUserLdap(string email, string password)
+        public UsuarioEntity GetUserLdap(string email, string password)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace WebAPI.Domain.Services
 
                 var entry = response.Entries[0];
 
-                return new UsuarioEntiy
+                return new UsuarioEntity
                 {
                     Nombres = entry.Attributes["givenName"]?[0]?.ToString(),
                     Apellidos = entry.Attributes["sn"]?[0]?.ToString(),

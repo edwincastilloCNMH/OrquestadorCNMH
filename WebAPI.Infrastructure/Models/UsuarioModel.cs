@@ -60,6 +60,15 @@ namespace WebAPI.Infrastructure.Models
         [Column("IsActiveDirectoryUser")]
         public bool IsActiveDirectoryUser { get; set; }
 
+        [Column("Direccion", TypeName = "varchar(150)")]
+        public string Direccion { get; set; }
+
+        [Column("PoblacionInteresId")]
+        public int? PoblacionInteresId { get; set; }
+
+        [Column("AceptaCondiciones")]
+        public bool? AceptaCondiciones { get; set; }
+
         // -----------------------------
         // Propiedades de navegación
         // -----------------------------
@@ -71,5 +80,6 @@ namespace WebAPI.Infrastructure.Models
         public GeneroModel Genero { get; set; }
         public NivelEducativoModel NivelEducativo { get; set; }
         public TipoDocumentoModel TipoDocumento { get; set; }
+        public PoblacionInteresModel PoblacionInteres { get; set; }
     }
 }

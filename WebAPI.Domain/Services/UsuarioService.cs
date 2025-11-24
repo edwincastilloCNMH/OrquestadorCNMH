@@ -12,29 +12,39 @@ namespace WebAPI.Domain.Services
 			_usersRepository = usersRepository;
 		}
 
-        public UsuarioEntiy Create(UsuarioEntiy entity)
+        public UsuarioEntity Create(UsuarioEntity entity)
 		{
 			return _usersRepository.Create(entity);
         }
 
-        public UsuarioEntiy Update(UsuarioEntiy entity)
+        public UsuarioEntity Update(UsuarioEntity entity)
 		{
 			return _usersRepository.Update(entity);
         }
 
-        public UsuarioEntiy GetById(int id)
+        public UsuarioEntity GetById(int id)
 		{
 			return _usersRepository.GetById(id);
         }
 
-		public UsuarioEntiy GetByNumDoc(string numDocument)
+		public UsuarioEntity GetByNumDoc(string numDocument)
 		{
 			return _usersRepository.GetByNumDoc(numDocument);
         }
 
-		public UsuarioEntiy GetByemail(string email)
+		public UsuarioEntity GetByemail(string email)
 		{
 			return _usersRepository.GetByemail(email);
+        }
+
+        public IEnumerable<UsuarioEntity> GetAllUsers()
+        {
+            return _usersRepository.GetAllUsers();
+        }
+
+        public PagedResult<UsuarioEntity> GetAllUsersPaged(int page, int pageSize)
+        {
+            return _usersRepository.GetAllUsersPaged(page, pageSize);
         }
     }
 }

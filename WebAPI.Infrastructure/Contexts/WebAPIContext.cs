@@ -33,6 +33,8 @@ namespace WebAPI.Infrastructure.Contexts
         public DbSet<TipoDocumentoModel> TipoDocumentoModel { get; set; }
         public DbSet<UsuarioModel> UsuarioModel { get; set; }
 
+        public DbSet<PoblacionInteresModel> PoblacionInteresModel { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(configuration.GetConnectionString("SqlserverConnection"));

@@ -15,5 +15,9 @@
         public DateTime? FechaNacimiento { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
+
+        public string Direccion { get; set; }
+        public int? PoblacionInteresId { get; set; }
+        public bool? AceptaCondiciones { get; set; }
     }
 }

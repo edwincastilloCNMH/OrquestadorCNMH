@@ -17,6 +17,20 @@
         public string Correo { get; set; }
         public string Password { get; set; }
         public int EstadoId { get; set; }
+
+        public string Direccion { get; set; }
+        public int? PoblacionInteresId { get; set; }
+        public bool? AceptaCondiciones { get; set; }
         public string? Token { get; set; }
+    }
+
+    public class UsuarioListDTO
+    {
+        public int Id { get; set; }             
+        public string Nombres { get; set; }      
+        public string Apellidos { get; set; }    
+        public string NumDocumento { get; set; } 
+        public string Correo { get; set; }       
+        public DateTime? FechaNacimiento { get; set; } 
     }
 }

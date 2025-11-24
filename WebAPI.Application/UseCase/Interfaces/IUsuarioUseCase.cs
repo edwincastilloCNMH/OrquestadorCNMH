@@ -9,5 +9,7 @@ namespace WebAPI.Application.UseCase.Interfaces
         Response<UsuarioDTO> CreateUser(UsuarioRequest user);
         Response<UsuarioDTO> GetUserById(int id);
         Response<UsuarioDTO> UpdateUser(UsuarioDTO user);
+        Task<Response<IEnumerable<UsuarioListDTO>>> GetAllUsers();
+        Task<Response<PagedResultDTO<UsuarioListDTO>>> GetAllUsersPaged(int page, int pageSize);
     }
 }

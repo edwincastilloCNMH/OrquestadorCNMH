@@ -4,10 +4,12 @@ namespace WebAPI.Domain.IRepositories
 {
 	public interface IUsuarioRepository : IDisposable
 	{
-        UsuarioEntiy Create(UsuarioEntiy entity);
-        UsuarioEntiy Update(UsuarioEntiy entity);
-        UsuarioEntiy GetById(int id);
-        UsuarioEntiy GetByNumDoc(string numDocument);
-        UsuarioEntiy GetByemail(string email);
+        UsuarioEntity Create(UsuarioEntity entity);
+        UsuarioEntity Update(UsuarioEntity entity);
+        UsuarioEntity GetById(int id);
+        UsuarioEntity GetByNumDoc(string numDocument);
+        UsuarioEntity GetByemail(string email);
+        IEnumerable<UsuarioEntity> GetAllUsers();
+        PagedResult<UsuarioEntity> GetAllUsersPaged(int page, int pageSize);
     }
 }

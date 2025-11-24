@@ -10,6 +10,8 @@ using WebAPI.Domain.IRepositories;
 using WebAPI.Domain.Services;
 using WebAPI.Infrastructure.Profiles;
 using WebAPI.Infrastructure.Repositories;
+using WebAPI.Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +61,9 @@ builder.Services.AddScoped<ISourceModelFieldsRepository, SourceModelFieldsReposi
 builder.Services.AddScoped<ISourceModelFieldsUseCase, SourceModelFieldsUseCase>();
 builder.Services.AddScoped<ISourceModelRepository, SourceModelRepository>();
 builder.Services.AddScoped<ISourceModelUseCase, SourceModelUseCase>();
+builder.Services.AddScoped<IConfiguracionesRepository, ConfiguracionesRepository>();
+builder.Services.AddScoped<IConfiguracionesUseCase, ConfiguracionesUseCase>();
+
 builder.Services.AddScoped<EstadoService>();
 builder.Services.AddScoped<ModelTypeService>();
 builder.Services.AddScoped<SourceConfigService>();
@@ -67,6 +72,11 @@ builder.Services.AddScoped<SourceModelService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<LdapService>();
+builder.Services.AddScoped<ConfiguracionesService>();
+
+builder.Services.AddDbContext<WebAPIContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SqlserverConnection"))
+);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -101,6 +111,19 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 app.UseAuthentication(); 
@@ -115,6 +138,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 
