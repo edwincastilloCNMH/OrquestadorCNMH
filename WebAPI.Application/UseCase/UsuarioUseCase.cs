@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq.Expressions;
 using System.Security.Claims;
 using System.Text;
 using WebAPI.Application.DTO;
@@ -10,7 +9,6 @@ using WebAPI.Application.Models;
 using WebAPI.Application.UseCase.Interfaces;
 using WebAPI.Domain.Entities;
 using WebAPI.Domain.Services;
-using WebAPI.Infrastructure.Models;
 
 namespace WebAPI.Application.UseCase
 {

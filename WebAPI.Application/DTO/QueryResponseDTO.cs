@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebAPI.Application.Models;
+
+namespace WebAPI.Application.DTO
+{
+    public class QueryResponseDTO
+    {
+        public QueryRequest ParametrosConsulta { get; set; }
+        public List<ResponseDTO> Resultados { get; set; } = new List<ResponseDTO>();
+    }
+
+    public class ResponseDTO
+    {
+        public string Titulo { get; set; }
+        public string Autor { get; set; }
+        public string Serie { get; set; }
+        public string Descripcion { get; set; }
+        public string Detalle { get; set; }
+        public string OriginDates { get; set; }
+    }
+}
