@@ -75,6 +75,7 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<LdapService>();
 builder.Services.AddScoped<ConfiguracionesService>();
+builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<ConsultaService>();
 
 builder.Services.AddDbContext<WebAPIContext>(options =>

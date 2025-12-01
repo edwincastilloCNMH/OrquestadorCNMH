@@ -21,6 +21,7 @@
         public string Direccion { get; set; }
         public int? PoblacionInteresId { get; set; }
         public bool? AceptaCondiciones { get; set; }
+        public bool? IsActiveDirectoryUser { get; set; }
         public string? Token { get; set; }
     }
 

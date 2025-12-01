@@ -171,5 +171,24 @@ namespace WebAPI.Infrastructure.Repositories
             }
             
         }
+
+        public UsuarioEntity GetByResetToken(string token)
+        {
+            try
+            {
+                using (var context = new WebAPIContext())
+                {
+                    var model = context.UsuarioModel
+                        .FirstOrDefault(x => x.ResetPasswordToken == token);
+
+                    return _mapper.Map<UsuarioEntity>(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Repository Error] Usuario - GetByResetToken: {ex.Message}");
+                return new UsuarioEntity();
+            }
+        }
     }
 }

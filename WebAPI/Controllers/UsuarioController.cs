@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Application.DTO;
 using WebAPI.Application.Models;
+using WebAPI.Application.UseCase;
 using WebAPI.Application.UseCase.Interfaces;
 
 namespace WebAPI.Controllers
@@ -97,6 +98,40 @@ namespace WebAPI.Controllers
         {
             var result = await _usersUseCase.GetAllUsersPaged(page, pageSize);
             return new JsonResult(result);
+        }
+
+        [HttpPost("reset-password-request")]
+        public IActionResult ResetPasswordRequest([FromBody] ResetPasswordRequestDTO request)
+        {
+            var result = _usersUseCase.RequestPasswordReset(request.Correo);
+
+            if (!result.Succeeded)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        
+        [HttpGet("reset-password-validate")]
+        public IActionResult ValidateToken([FromQuery] string token)
+        {
+            var result = _usersUseCase.ValidateResetToken(token);
+
+            if (!result.Succeeded)
+                return BadRequest(result);
+
+            return Ok(result);
+        }
+
+        [HttpPost("reset-password-confirm")]
+        public IActionResult ResetPasswordConfirm([FromBody] ResetPasswordConfirmDTO request)
+        {
+            var result = _usersUseCase.ResetPasswordConfirm(request.Token, request.NewPassword);
+
+            if (!result.Succeeded)
+                return BadRequest(result);
+
+            return Ok(result);
         }
     }
 }

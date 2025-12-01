@@ -69,6 +69,14 @@ namespace WebAPI.Infrastructure.Models
         [Column("AceptaCondiciones")]
         public bool? AceptaCondiciones { get; set; }
 
+        [Column("ResetPasswordToken")]
+
+        public string? ResetPasswordToken { get; set; }
+
+        [Column("ResetTokenExpiration")]
+
+        public DateTime? ResetTokenExpiration { get; set; }
+
         // -----------------------------
         // Propiedades de navegación
         // -----------------------------
