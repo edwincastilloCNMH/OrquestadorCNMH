@@ -11,5 +11,7 @@ namespace WebAPI.Domain.IRepositories
         UsuarioEntity GetByemail(string email);
         IEnumerable<UsuarioEntity> GetAllUsers();
         PagedResult<UsuarioEntity> GetAllUsersPaged(int page, int pageSize);
+
+        UsuarioEntity GetByResetToken(string token);
     }
 }

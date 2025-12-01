@@ -46,5 +46,10 @@ namespace WebAPI.Domain.Services
         {
             return _usersRepository.GetAllUsersPaged(page, pageSize);
         }
+
+        public UsuarioEntity GetByResetToken(string token)
+        {
+            return _usersRepository.GetByResetToken(token);
+        }
     }
 }

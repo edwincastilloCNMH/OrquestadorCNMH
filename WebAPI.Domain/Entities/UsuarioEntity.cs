@@ -19,6 +19,9 @@
         public int EstadoId { get; set; }
         public bool IsActiveDirectoryUser { get; set; }
 
+        public string ResetPasswordToken { get; set; }
+        public DateTime? ResetTokenExpiration { get; set; }
+
         public string Direccion { get; set; }
         public int? PoblacionInteresId { get; set; }
         public bool? AceptaCondiciones { get; set; }

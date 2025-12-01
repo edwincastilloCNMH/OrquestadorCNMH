@@ -73,6 +73,7 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<LdapService>();
 builder.Services.AddScoped<ConfiguracionesService>();
+builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddDbContext<WebAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlserverConnection"))
