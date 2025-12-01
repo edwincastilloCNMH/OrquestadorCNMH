@@ -63,6 +63,8 @@ builder.Services.AddScoped<ISourceModelRepository, SourceModelRepository>();
 builder.Services.AddScoped<ISourceModelUseCase, SourceModelUseCase>();
 builder.Services.AddScoped<IConfiguracionesRepository, ConfiguracionesRepository>();
 builder.Services.AddScoped<IConfiguracionesUseCase, ConfiguracionesUseCase>();
+builder.Services.AddScoped<IConsultaUseCase, ConsultaUseCase>();
+builder.Services.AddScoped<IConsultaRepository, ConsultaRepository>();
 
 builder.Services.AddScoped<EstadoService>();
 builder.Services.AddScoped<ModelTypeService>();
@@ -74,6 +76,7 @@ builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<LdapService>();
 builder.Services.AddScoped<ConfiguracionesService>();
 builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<ConsultaService>();
 
 builder.Services.AddDbContext<WebAPIContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SqlserverConnection"))

@@ -59,6 +59,8 @@ namespace WebAPI.Application.Profiles
             CreateMap<NivelEducativoEntity, NivelEducativoDTO>();
             CreateMap<PoblacionInteresEntity, PoblacionInteresDTO>().ReverseMap();
             CreateMap<GeneroEntity, GeneroDTO>().ReverseMap();
+            CreateMap<ResponseEntity, ResponseDTO>().ReverseMap();
+            CreateMap<QueryRequestEntity, QueryRequest>().ReverseMap();
         }
 	}
 }
