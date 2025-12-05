@@ -30,5 +30,37 @@ namespace WebAPI.Controllers.Areas.Consulta
                 return BadRequest(result);
             }
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> GetAdvancedQuery(QueryRequestMeta request)
+        {
+            var result = await _consultaUseCase.GetAdvancedQuery(request);
+
+            if (result.Succeeded)
+            {
+                result.Message = Ok().StatusCode.ToString();
+                return new JsonResult(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+
+        [HttpGet("[action]/{code}")]
+        public async Task<IActionResult> GetDocumentByCode(string code)
+        {
+            var result = await _consultaUseCase.GetDocumentByCode(code);
+
+            if (result.Succeeded)
+            {
+                result.Message = Ok().StatusCode.ToString();
+                return new JsonResult(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
     }
 }

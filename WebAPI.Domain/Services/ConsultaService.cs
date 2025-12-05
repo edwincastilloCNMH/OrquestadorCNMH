@@ -17,5 +17,15 @@ namespace WebAPI.Domain.Services
         {
             return await  _consultaRepository.GetBasicQuery(repo, request);
         }
+
+        public async Task<List<ResponseEntity>> GetAdvancedQuery(string repo, QueryRequestEntity request)
+        {
+            return await _consultaRepository.GetAdvancedQuery(repo, request);
+        }
+
+        public async Task<DocumentoEntity> GetDocumentByCode(string code)
+        {
+            return await _consultaRepository.GetDocumentByCode(code);
+        }
     }
 }

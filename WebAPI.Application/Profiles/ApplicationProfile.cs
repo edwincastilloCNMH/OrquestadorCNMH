@@ -61,6 +61,7 @@ namespace WebAPI.Application.Profiles
             CreateMap<GeneroEntity, GeneroDTO>().ReverseMap();
             CreateMap<ResponseEntity, ResponseDTO>().ReverseMap();
             CreateMap<QueryRequestEntity, QueryRequest>().ReverseMap();
+            CreateMap<DocumentoEntity, DocumentoDTO>().ReverseMap();
         }
 	}
 }
